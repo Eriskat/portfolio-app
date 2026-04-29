@@ -11,7 +11,8 @@ jobs:
       - name: Build image  
         run: |
          docker build -t ${{ secrets.DOCKER_USERNAME }}/ciporfolio:${{ github.run_number }} .
-         docker build -t ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
+         docker tag ${{ secrets.DOCKER_USERNAME }}/ciporfolio:${{ github.run_number }} ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
+
       - name: Docker login
         uses: docker/login-action@v4
         with:
@@ -21,4 +22,4 @@ jobs:
       - name: Push image to registry
         run: |
          docker push ${{ secrets.DOCKER_USERNAME }}/ciporfolio:${{ github.run_number  }} 
-         docker push ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
+         docker push ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest 
