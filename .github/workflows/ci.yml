@@ -33,5 +33,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
-              docker rm -f portfolio || echo ""
+              docker rm -f portfolio || echo "container not working,skipping removal"
               docker run -d --name portfolio -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
