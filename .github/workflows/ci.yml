@@ -34,4 +34,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
               docker rm -f portfolio || echo ""
-              docker run -d --name portfolio -p 8088:80 ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
+              docker run -d --name portfolio -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/ciporfolio:latest
