@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: us-east-1
-  ECR_REPOSITORY: my-portal
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY}}
 
 jobs:
   build-and-push:
