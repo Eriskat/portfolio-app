@@ -36,10 +36,10 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag $ECR_REPOSITORY:latest \
-          ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          docker tag ${{ env.ECR_REPOSITORY }}:latest \
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY}}:latest
 
       - name: Push Docker image
         run: |
           docker push \
-          ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest
